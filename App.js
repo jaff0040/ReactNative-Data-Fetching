@@ -45,14 +45,14 @@ const App = () => {
   // Render FlatList:
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
-
-      {Platform.OS === 'android' && <UserAvatar size={50} borderColor="black" borderWidth={2} name={item.first_name} src={item.avatar} />}
+                                      
+      {Platform.OS === 'android' && <UserAvatar size={50} borderColor="black" borderWidth={2} name={item.first_name} src={item.avatar || 'fallback-avatar-url'} />}
       <View style={styles.nameContainer}>
         <Text style={styles.fName}>{item.first_name}</Text>
         <Text style={styles.lName}>{item.last_name}</Text>
       </View>
-      {Platform.OS === 'ios' && <UserAvatar size={50} borderColor="black" borderWidth={2} name={item.first_name} src={item.avatar} />}
-
+      {Platform.OS === 'ios' && <UserAvatar size={50} borderColor="black" borderWidth={2} name={item.first_name} src={item.avatar || 'fallback-avatar-url'} />}
+      
     </View>
   );
 
